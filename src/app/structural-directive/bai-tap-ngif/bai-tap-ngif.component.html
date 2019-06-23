@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <!-- Quan trọng này -->
+      <li class="nav-item" *ngIf="!statusLogin; else LoginSuccess">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modelId">Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link" *ngIf="statusLogout" (click)="logout()">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link" data-toggle="modal" data-target="#modelId1" *ngIf="statusRes">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ng-template #LoginSuccess>
+  <li class="nav-item">
+    <a class="nav-link">Xin chào {{name}}</a>
+  </li>
+</ng-template>
+
+<!-- Modal Login -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">Username</label>
+          <input type="text" class="form-control" #userName>
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="text" [value]="pw" class="form-control" #password
+            (keyup.enter)="login(userName.value, password.value)">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- Quan trọng này -->
+        <button type="button" class="btn btn-success" (click)="login(userName.value, password.value)"
+          (click)="showLogout()" (click)="hiddenRes()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Res -->
+<div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Resgister</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">First name</label>
+          <input type="text" class="form-control" #fname>
+        </div>
+        <div class="form-group">
+          <label for="">Last name</label>
+          <input type="text" class="form-control" #lname>
+        </div>
+        <div class="form-group">
+          <label for="">Username</label>
+          <input type="text" class="form-control" #uname>
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="text" class="form-control" #pass>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="res(uname.value, pass.value)">Resgister</button>
+      </div>
+    </div>
+  </div>
+</div>

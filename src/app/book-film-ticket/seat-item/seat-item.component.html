@@ -1,0 +1,4 @@
+<button class="btn btnSeat" 
+[ngClass]="{seatSold: seat.SoldStatus, seatBooking: BookingStatus}"
+[disabled]="seat.SoldStatus"
+(click)="tick()">{{seat.SeatCode}}</button>

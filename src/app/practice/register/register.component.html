@@ -1,0 +1,35 @@
+<!-- <app-login *ngFor="let user of DSND" [user]="user"></app-login> -->
+
+<li class="d-flex">
+  <img src="./assets/img/icon-register.png" alt="">
+  <a style="font-size: 21px; color: #e00d7a" class="nav-link p-3" href="#" data-toggle="modal"
+    data-target="#register">ĐĂNG KÍ THÀNH VIÊN</a>
+</li>
+
+<!-- Modal -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ĐĂNG KÍ THÀNH VIÊN</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">Username</label>
+          <input type="text" class="form-control" #uN>
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="text" class="form-control" type="password" #pw>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="register(uN.value, pw.value)">Đăng kí</button>
+      </div>
+    </div>
+  </div>
+</div>
+

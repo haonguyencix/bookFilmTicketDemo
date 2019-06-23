@@ -1,0 +1,36 @@
+<li class="d-flex">
+  <img src="./assets/img/icon-login.png" alt="">
+  <a style="font-size: 21px; color: #e00d7a" class="nav-link p-3" href="#" data-toggle="modal"
+    data-target="#login" *ngIf="!statusLogin; else loginSuccess">ĐĂNG NHẬP</a>
+</li>
+
+<ng-template #loginSuccess>
+    <a style="font-size: 21px; color: #e00d7a" class="nav-link p-3" href="#" data-toggle="modal"
+    data-target="#login">XIN CHÀO {{name}}</a>
+</ng-template>
+<!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ĐĂNG NHẬP</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">Username</label>
+          <input type="text" class="form-control" #userName>
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="text" class="form-control" type="password" #password>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="login(userName.value, password.value)">Đăng nhập</button>
+      </div>
+    </div>
+  </div>
+</div>
