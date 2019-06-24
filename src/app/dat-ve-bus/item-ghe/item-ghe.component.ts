@@ -9,7 +9,7 @@ export class ItemGheComponent implements OnInit {
 
 
   TrangThaiDangChon: boolean = false;
-  @Input() ghe: string;
+  @Input() ghe;
   @Output() eventGhe = new EventEmitter;
   constructor() { }
 

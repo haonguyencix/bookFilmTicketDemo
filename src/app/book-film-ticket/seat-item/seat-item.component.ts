@@ -9,7 +9,7 @@ export class SeatItemComponent implements OnInit {
 
   BookingStatus: boolean = false;
   @Output() tickEvent = new EventEmitter;
-  @Input() seat: string;
+  @Input() seat;
   constructor() { }
 
   ngOnInit() {
